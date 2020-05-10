@@ -1,0 +1,6 @@
+linux-odroidc2 (5.4.0-1000.1) focal; urgency=medium
+
+  * Bringup
+
+ -- Khalid El Mously <khalid.elmously@canonical.com>  Sun, 10 May 2020 17:33:03 -0500
+
