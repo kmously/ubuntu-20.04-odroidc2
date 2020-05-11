@@ -84,7 +84,7 @@ Priority: optional
 Provides: linux-image, fuse-module, aufs-dkms, ${linux:rprovides}
 Depends: ${misc:Depends}, ${shlibs:Depends}, kmod, linux-base (>= 4.5ubuntu1~16.04.1), linux-modules-5.4.0-1001-odroidc2
 Recommends: grub-pc [amd64 x32] | grub-efi-amd64 [amd64 x32] | grub-efi-ia32 [amd64 x32] | grub [amd64 x32] | lilo (>= 19.1) [amd64 x32] | flash-kernel [arm64] | grub-ieee1275 [ppc64el], initramfs-tools | linux-initramfs-tool
-Breaks: flash-kernel (<< 3.90ubuntu2) [arm64 ], s390-tools (<< 2.3.0-0ubuntu3) [s390x]
+Breaks: flash-kernel (<< 3.90ubuntu2) [arm64], s390-tools (<< 2.3.0-0ubuntu3) [s390x]
 Conflicts: linux-image-unsigned-5.4.0-1001-odroidc2
 Suggests: fdutils, linux-odroidc2-doc-5.4.0 | linux-odroidc2-source-5.4.0, linux-odroidc2-tools, linux-headers-5.4.0-1001-odroidc2
 Description: Linux kernel image for version 5.4.0 on  SMP
