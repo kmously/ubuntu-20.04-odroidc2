@@ -19,7 +19,7 @@ Build-Depends:
  pkg-config <!stage1>,
  flex <!stage1>,
  bison <!stage1>,
- libunwind8-dev [amd64 arm64 armhf ppc64el] <!stage1>,
+ libunwind8-dev [amd64 arm64 ppc64el] <!stage1>,
  openssl <!stage1>,
  libssl-dev <!stage1>,
  libaudit-dev <!stage1>,
@@ -51,7 +51,7 @@ XS-Testsuite: autopkgtest
 
 Package: SRCPKGNAME-headers-PKGVER-ABINUM
 Build-Profiles: <!stage1>
-Architecture: armhf arm64
+Architecture: arm64
 Multi-Arch: foreign
 Section: devel
 Priority: optional
@@ -63,7 +63,7 @@ Description: Header files related to Linux kernel version PKGVER
 
 Package: SRCPKGNAME-tools-PKGVER-ABINUM
 Build-Profiles: <!stage1>
-Architecture: armhf arm64
+Architecture: arm64
 Section: devel
 Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends}, linux-tools-common

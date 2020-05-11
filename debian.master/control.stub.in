@@ -22,7 +22,6 @@ Build-Depends:
  pkg-config <!stage1>,
  flex <!stage1>,
  bison <!stage1>,
- libunwind8-dev [amd64 arm64 armhf ppc64el] <!stage1>,
  liblzma-dev <!stage1>,
  openssl <!stage1>,
  libssl-dev <!stage1>,
@@ -104,7 +103,7 @@ Description: Linux kernel version specific tools for version PKGVER
 
 Package: SRCPKGNAME-tools-PKGVER-ABINUM
 Build-Profiles: <!stage1>
-Architecture: amd64 armhf arm64 ppc64el s390x
+Architecture: amd64 arm64 ppc64el s390x
 Section: devel
 Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends}, linux-tools-common
@@ -128,7 +127,7 @@ Description: Linux kernel version specific cloud tools for version PKGVER
 
 Package: SRCPKGNAME-cloud-tools-PKGVER-ABINUM
 Build-Profiles: <!stage1>
-Architecture: amd64 armhf
+Architecture: amd64 
 Section: devel
 Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends}, linux-cloud-tools-common

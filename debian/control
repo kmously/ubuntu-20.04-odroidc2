@@ -1,0 +1,176 @@
+Source: linux-odroidc2
+Section: devel
+Priority: optional
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Standards-Version: 3.9.4.0
+Build-Depends:
+ debhelper (>= 9),
+ dh-systemd,
+ cpio,
+ kernel-wedge,
+ kmod <!stage1>,
+ makedumpfile [amd64] <!stage1>,
+ libelf-dev <!stage1>,
+ libnewt-dev <!stage1>,
+ libiberty-dev <!stage1>,
+ rsync <!stage1>,
+ libdw-dev <!stage1>,
+ libpci-dev <!stage1>,
+ pkg-config <!stage1>,
+ flex <!stage1>,
+ bison <!stage1>,
+ libunwind8-dev [amd64 arm64 ppc64el] <!stage1>,
+ openssl <!stage1>,
+ libssl-dev <!stage1>,
+ libaudit-dev <!stage1>,
+ bc <!stage1>,
+ gawk <!stage1>,
+ device-tree-compiler [powerpc] <!stage1>,
+ u-boot-tools [powerpc] <!stage1>,
+ libc6-dev-ppc64 [powerpc] <!stage1>,
+ libudev-dev <!stage1>,
+ autoconf <!stage1>,
+ automake <!stage1>,
+ libtool <!stage1>,
+ uuid-dev <!stage1>,
+Build-Depends-Indep:
+ xmlto <!stage1>,
+ docbook-utils <!stage1>,
+ ghostscript <!stage1>,
+ fig2dev <!stage1>,
+ bzip2 <!stage1>,
+ sharutils <!stage1>,
+ asciidoc <!stage1>,
+ python3-sphinx <!stage1>,
+ python3-sphinx-rtd-theme <!stage1>,
+ python3-docutils <!stage1>,
+Vcs-Git: git://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/UNRELEASED -b raspi2-5.4
+Vcs-Browser: https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/UNRELEASED/log/?h=raspi2-5.4
+XS-Testsuite: autopkgtest
+#XS-Testsuite-Depends: gcc-4.7 binutils
+
+Package: linux-odroidc2-headers-5.4.0-1001
+Build-Profiles: <!stage1>
+Architecture: arm64
+Multi-Arch: foreign
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, coreutils
+Description: Header files related to Linux kernel version 5.4.0
+ This package provides kernel header files for version 5.4.0, for sites
+ that want the latest kernel headers. Please read
+ /usr/share/doc/linux-odroidc2-headers-5.4.0-1001/debian.README.gz for details
+
+Package: linux-odroidc2-tools-5.4.0-1001
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, ${shlibs:Depends}, linux-tools-common
+Description: Linux kernel version specific tools for version 5.4.0-1001
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 5.4.0-1001 on
+ .
+ You probably want to install linux-tools-5.4.0-1001-<flavour>.
+
+
+
+Package: linux-image-5.4.0-1001-odroidc2
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: kernel
+Priority: optional
+Provides: linux-image, fuse-module, aufs-dkms, ${linux:rprovides}
+Depends: ${misc:Depends}, ${shlibs:Depends}, kmod, linux-base (>= 4.5ubuntu1~16.04.1), linux-modules-5.4.0-1001-odroidc2
+Recommends: grub-pc [amd64 x32] | grub-efi-amd64 [amd64 x32] | grub-efi-ia32 [amd64 x32] | grub [amd64 x32] | lilo (>= 19.1) [amd64 x32] | flash-kernel [arm64] | grub-ieee1275 [ppc64el], initramfs-tools | linux-initramfs-tool
+Breaks: flash-kernel (<< 3.90ubuntu2) [arm64], s390-tools (<< 2.3.0-0ubuntu3) [s390x]
+Conflicts: linux-image-unsigned-5.4.0-1001-odroidc2
+Suggests: fdutils, linux-odroidc2-doc-5.4.0 | linux-odroidc2-source-5.4.0, linux-odroidc2-tools, linux-headers-5.4.0-1001-odroidc2
+Description: Linux kernel image for version 5.4.0 on  SMP
+ This package contains the Linux kernel image for version 5.4.0 on
+  SMP.
+ .
+ Supports Generic processors.
+ .
+ Geared toward headless server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-odroidc2 meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
+Package: linux-modules-5.4.0-1001-odroidc2
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: kernel
+Priority: optional
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Built-Using: ${linux:BuiltUsing}
+Description: Linux kernel extra modules for version 5.4.0 on  SMP
+ Contains the corresponding System.map file, the modules built by the
+ packager, and scripts that try to ensure that the system is not left in an
+ unbootable state after an update.
+ .
+ Supports Generic processors.
+ .
+ Geared toward headless server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-odroidc2 meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
+Package: linux-headers-5.4.0-1001-odroidc2
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, linux-odroidc2-headers-5.4.0-1001, ${shlibs:Depends}
+Provides: linux-headers, linux-headers-3.0
+Description: Linux kernel headers for version 5.4.0 on  SMP
+ This package provides kernel header files for version 5.4.0 on
+  SMP.
+ .
+ This is for sites that want the latest kernel headers.  Please read
+ /usr/share/doc/linux-headers-5.4.0-1001/debian.README.gz for details.
+
+Package: linux-image-5.4.0-1001-odroidc2-dbgsym
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}
+Provides: linux-debug
+Description: Linux kernel debug image for version 5.4.0 on  SMP
+ This package provides the kernel debug image for version 5.4.0 on
+  SMP.
+ .
+ This is for sites that wish to debug the kernel.
+ .
+ The kernel image contained in this package is NOT meant to boot from. It
+ is uncompressed, and unstripped. This package also includes the
+ unstripped modules.
+
+Package: linux-tools-5.4.0-1001-odroidc2
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, linux-odroidc2-tools-5.4.0-1001
+Description: Linux kernel version specific tools for version 5.4.0-1001
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 5.4.0-1001 on
+ .
+
+Package: linux-buildinfo-5.4.0-1001-odroidc2
+Build-Profiles: <!stage1>
+Architecture: arm64
+Section: kernel
+Priority: optional
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Built-Using: ${linux:BuiltUsing}
+Description: Linux kernel buildinfo for version 5.4.0 on  SMP
+ This package contains the Linux kernel buildinfo for version 5.4.0 on
+  SMP.
+ .
+ You likely do not want to install this package.
