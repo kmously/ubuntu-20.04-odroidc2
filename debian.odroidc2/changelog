@@ -12,6 +12,15 @@ linux-odroidc2 (5.4.0-1001.2) focal; urgency=medium
     - Temporary: SKIP abi check
     - Temporary: ignore retpoline checks
 
+  [ Ubuntu: 5.4.0-31.35 ]
+
+  * focal/linux: 5.4.0-31.35 -proposed tracker (LP: #1877253)
+  * Intermittent display blackouts on event (LP: #1875254)
+    - drm/i915: Limit audio CDCLK>=2*BCLK constraint back to GLK only
+  * Unable to handle kernel pointer dereference in virtual kernel address space
+    on Eoan (LP: #1876645)
+    - SAUCE: overlayfs: fix shitfs special-casing
+
  -- Khalid Elmously <khalid.elmously@canonical.com>  Sun, 10 May 2020 23:57:29 -0400
 
 linux-odroidc2 (5.4.0-1000.1) focal; urgency=medium
