@@ -56,9 +56,11 @@ while [ "$#" -gt 0 ]; do
 	shift
 done
 
+	echo FUZZY1
 hl() { echo -e "\e[1m$*\e[0m"; }
 
 run() {
+	echo FUZZY2
 	# Quote args for echo or eval
 	local quoted=()
 	for token; do
@@ -168,6 +170,7 @@ chroot_run fakeroot debian/rules clean
 
 # Update ABI
 if [ -d "$DEBIAN/abi" ]; then
+	echo FUZZY3
 	# The new ABI directory should use the current version in the
 	# changelog since `fdr startnewrelease` was't called at this
 	# point yet:
