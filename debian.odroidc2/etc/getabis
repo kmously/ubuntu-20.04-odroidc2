@@ -1,5 +1,5 @@
 repo_list=(
-	"http://ppa.launchpad.net/kmously/odroidc2/ubuntu/pool/main/l/linux-raspi2"
+	"http://ppa.launchpad.net/kmously/odroidc2/ubuntu/pool/main/l/linux-odroidc2"
 )
 
 package_prefixes linux-buildinfo
