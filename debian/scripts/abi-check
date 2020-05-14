@@ -10,7 +10,7 @@ my $skipabi = shift;
 my $fail_exit = 1;
 my $EE = "EE:";
 my $errors = 0;
-my $abiskip = 1;
+my $abiskip = 0;
 
 my $count;
 
